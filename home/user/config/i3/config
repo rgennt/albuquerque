@@ -162,6 +162,19 @@ mode "move-workspace" {
         bindsym Up move workspace to output up
         bindsym Right move workspace to output right
 
+	
+	# switch to workspace
+	bindsym $mod+1 workspace 1
+	bindsym $mod+2 workspace 2
+	bindsym $mod+3 workspace 3
+	bindsym $mod+4 workspace 4
+	bindsym $mod+5 workspace 5
+	bindsym $mod+6 workspace 6
+	bindsym $mod+7 workspace 7
+	bindsym $mod+8 workspace 8
+	bindsym $mod+9 workspace 9
+	bindsym $mod+0 workspace 10
+
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
