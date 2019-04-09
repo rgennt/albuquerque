@@ -14,5 +14,12 @@ copyI3config () {
   mkdir -p ./originals && mv --backup=numbered ${configPath}*.orig ./originals
 }
 
+#copy i3 layout
+copyI3layouts () {
+  configPath=/home/$SUDO_USER/.i3/
+  ln -s `pwd`/home/user/i3/layouts ${configPath}layouts 
+}
+
 copyX11config
 copyI3config
+copyI3layouts

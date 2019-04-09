@@ -151,6 +151,7 @@ bindsym $mod+r mode "resize"
 
 # Custom
 bindsym $mod+Escape exec i3lock -e -c 000000
+bindsym $mod+i exec i3-input
 mode "move-workspace" {
         bindsym j move workspace to output left
         bindsym k move workspace to output down
@@ -185,3 +186,6 @@ bindsym $mod+m mode "move-workspace"
 bar {
         status_command i3status
 }
+exec xrandr --output HDMI-2 --off --output HDMI-1 --mode 3840x2160 --pos 0x0 --rotate normal --output DP-1 --off --output eDP-1 --primary --mode 2560x1440 --pos 600x2160 --rotate normal --output DP-2 --off
+# i3-save-tree --workspace 1 > ~/.i3/workspace-1.json
+exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/roman/.i3/layouts/browser.json'"
