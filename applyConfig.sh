@@ -20,6 +20,14 @@ copyI3layouts () {
   ln -s `pwd`/home/user/i3/layouts ${configPath}layouts 
 }
 
+#copy tmux config
+copyTmuxconfig () {
+  configPath=/home/$SUDO_USER/
+  cp -s --backup=existing --suffix=.orig -t ${configPath} `pwd`/home/user/.tmux.conf 
+  mkdir -p ./originals && mv --backup=numbered ${configPath}*.orig ./originals
+}
+
 copyX11config
 copyI3config
 copyI3layouts
+copyTmuxconfig
