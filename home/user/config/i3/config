@@ -186,6 +186,20 @@ bindsym $mod+m mode "move-workspace"
 bar {
         status_command i3status
 }
-exec xrandr --output HDMI-2 --off --output HDMI-1 --mode 3840x2160 --pos 0x0 --rotate normal --output DP-1 --off --output eDP-1 --primary --mode 2560x1440 --pos 600x2160 --rotate normal --output DP-2 --off
+
+#exec_always bash "xrandr --output HDMI-2 --off --output HDMI-1 --mode 3840x2160 --pos 0x0 --rotate normal --output DP-1 --off --output eDP-1 --primary --mode 2560x1440 --pos 600x2160 --rotate normal --output DP-2 --pos 0x0 --auto"
+exec_always bash 'xrandr --output HDMI-1 --mode 3840x2160 --pos 0x0 --rotate normal --output DP-2 --mode 3840x2160 --pos 0x0 --rotate normal --output DP-1 --off --output eDP-1 --primary --mode 2560x1440 --pos 600x2160 --rotate normal' 
+
+workspace 1 output eDP-1
+workspace 2 output eDP-1
 # i3-save-tree --workspace 1 > ~/.i3/workspace-1.json
 exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/roman/.i3/layouts/browser.json'"
+exec --no-startup-id "google-chrome"
+exec --no-startip-id "gnome-terminal"
+exec --no-startup-id "gnome-terminal"
+
+exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/roman/.i3/layouts/remote.json'"
+exec --no-startup-id "remmina"
+exec --no-startip-id "virtualbox"
+exec --no-startup-id "gnome-terminal"
+
