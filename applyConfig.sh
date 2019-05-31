@@ -11,8 +11,9 @@ copyOriginalsFrom (){
   fi
 
 }
-#copy x11 touchpad ocnfig
-copyX11config (){
+
+# copy x11 touchpad ocnfig
+copyX11Touchpadconfig (){
   configPath=/etc/X11/xorg.conf.d/
   #Make sure config folder exist
   mkdir -p ${configPath}
@@ -20,9 +21,24 @@ copyX11config (){
   if [ $? -eq 0 ]
   then
     copyOriginalsFrom ${configPath}
-    echo "X11 config placed"
+    echo "X11 touchad config placed"
   else
-    echo "FAILED: X11"
+    echo "FAILED: X11 touchpad"
+  fi
+}
+
+# copy x11 brightness ocnfig. UX31A had no brightness control
+copyX11Brightnesconfig (){
+  configPath=/etc/X11/xorg.conf.d/
+  #Make sure config folder exist
+  mkdir -p ${configPath}
+  cp -s --backup=existing --suffix=.orig -t ${configPath} `pwd`${configPath}80-backlight.conf 
+  if [ $? -eq 0 ]
+  then
+    copyOriginalsFrom ${configPath}
+    echo "X11 touchad config placed"
+  else
+    echo "FAILED: X11 Backlight"
   fi
 }
 
@@ -67,7 +83,8 @@ copyTmuxconfig () {
 }
 
 
-copyX11config
+copyX11Touchpadconfig
+copyX11Brightnesconfig
 copyI3config
 copyI3layouts
 copyTmuxconfig
