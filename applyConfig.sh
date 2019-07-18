@@ -27,7 +27,15 @@ copyTmuxconfig () {
   mkdir -p ./originals && mv --backup=numbered ${configPath}*.orig ./originals
 }
 
+#copy vim config
+copyVimconfig () {
+  configPath=/home/$SUDO_USER/
+  cp -s --backup=existing --suffix=.orig -t ${configPath} `pwd`/home/user/.vimrc 
+  mkdir -p ./originals && mv --backup=numbered ${configPath}*.orig ./originals
+}
+
 copyX11config
 copyI3config
 copyI3layouts
 copyTmuxconfig
+copyVimconfig
