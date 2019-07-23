@@ -89,13 +89,12 @@ copyVimconfig () {
   if [ $? -eq 0 ]
   then
     copyOriginalsFrom ${configPath}
-    echo "Tmux config placed"
+    echo "vim config placed"
   else
     echo "FAILED: tmux"
   fi
 }
 
-copyX11config
 copyX11Touchpadconfig
 copyX11Brightnesconfig
 copyI3config
