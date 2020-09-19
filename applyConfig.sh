@@ -82,9 +82,22 @@ copyTmuxconfig () {
   fi
 }
 
+#copy vim config
+copyVimconfig () {
+  configPath=/home/$SUDO_USER/
+  cp -s --backup=existing --suffix=.orig -t ${configPath} `pwd`/home/user/.vimrc 
+  if [ $? -eq 0 ]
+  then
+    copyOriginalsFrom ${configPath}
+    echo "vim config placed"
+  else
+    echo "FAILED: tmux"
+  fi
+}
 
 copyX11Touchpadconfig
 copyX11Brightnesconfig
 copyI3config
 copyI3layouts
 copyTmuxconfig
+copyVimconfig

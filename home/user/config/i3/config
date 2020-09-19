@@ -180,6 +180,7 @@ mode "move-workspace" {
         bindsym Escape mode "default"
 }
 bindsym $mod+m mode "move-workspace"
+bindsym Control+Print exec gnome-screenshot -i
 
 ######################
 ###### FN KEYS #######
@@ -211,6 +212,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # finds out, if available)
 bar {
         status_command i3status
+        tray_output primary
 }
 
 #exec_always bash "xrandr --output HDMI-2 --off --output HDMI-1 --mode 3840x2160 --pos 0x0 --rotate normal --output DP-1 --off --output eDP-1 --primary --mode 2560x1440 --pos 600x2160 --rotate normal --output DP-2 --pos 0x0 --auto"
@@ -232,4 +234,4 @@ exec --no-startup-id "remmina"
 exec --no-startip-id "virtualbox"
 exec --no-startup-id "gnome-terminal"
 
-
+exec --no-startup-id nm-applet
